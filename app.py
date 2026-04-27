@@ -68,6 +68,11 @@ def load_gemini():
 @st.cache_resource(show_spinner="Loading recipe index...")
 def load_retriever():
     try:
+        from rag import INDEX_PATH
+        if not os.path.exists(INDEX_PATH):
+            with st.status("Initializing recipe database for the first time..."):
+                import ingest
+                ingest.main()
         return RecipeRetriever()
     except Exception as e:
         st.error(f"Error loading index: {e}")
