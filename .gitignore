@@ -217,8 +217,7 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# FAISS index
-faiss_index/
+
 
 # Only include the recipe file we are using
 data/*
